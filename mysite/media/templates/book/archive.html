@@ -1,0 +1,43 @@
+{% extends 'shared/site.html' %}
+{% block body %}
+    <div class = "container">
+        <div style="margin-top: 50px;"></div>
+        <h1 class="text-center">
+            All book
+        </h1>
+    </div>
+    {% if day_archive_books %}
+        <div class = "table-responsive">
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">book</th>
+                    <th scope="col">borrower</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for bookinst in day_archive_books %}
+                        <tr>
+                            <th scope="row">{{forloop.counter}}</th>
+                            <td>{{bookinst.book}}</td>
+                            <td>{{bookinst.borrower}}</td>
+                            
+                        </tr>    
+                    {% endfor %}     
+                </tbody>
+            </table>  
+        </div> 
+
+        
+    {% else %} 
+        <h1>No books are found!!!</h1>
+    {% endif %}
+
+    {% include 'partials/pagination.html' %}
+    {% include 'partials/navigation.html' %}
+       
+
+    
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'shared/site.html' %}
+{% block body %}
+    <div class = "container">
+        <div style="margin-top: 50px;"></div>
+        <h1 class="text-center">
+            All borrower
+        </h1>
+    {% if bookinstance_list %}
+        <div class = "table-responsive">
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Due_Back</th>
+                    <th scope="col">User</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for bookinst in bookinstance_list %}
+                        <tr>
+                            <th scope="row">{{forloop.counter}}</th>
+                            <td>{{bookinst.book}}</td>
+                            <td>{{bookinst.due_back}}</td>
+                            <td>{{bookinst.borrower}}</a>
+                        </tr>
+               
+                    {% endfor %}
+                    {% endif %}           
+                </tbody>
+            </table>  
+        </div>   
+    </div>     
+        {% include 'partials/pagination.html' %}
+        {% include 'partials/navigation.html' %}
+
+{% endblock %}        

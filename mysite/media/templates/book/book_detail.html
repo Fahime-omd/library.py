@@ -1,0 +1,14 @@
+{% extends 'shared/site.html' %}
+{% block body %}
+    <p>{{book.title}}</p>
+    <p>{{book.summary}}</p>
+    <p>{{book.isbn}}</p>
+
+    {% for copy in book.bookinstance_set.all %}
+        {% if copy.statuse == 'o' %}
+           <p>{{copy.due_back}}</p> 
+           <p>{{copy.imprint}}</p>
+           <p>{{copy.id}}</p>
+        {% endif %}
+    {% endfor %}       
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "shared/site.html" %}
+{% block body %}
+<div class = "col-md-3"></div>
+  <div div class = "col-md-6">
+    <h3 class="text-center">Login Form</h3>
+    <form action="" method="post">
+      {% csrf_token %}
+      <p style="color:red;">{{username}} {{errorMessage}}</p>
+      <div class="mb-3">
+
+        <br/>
+        <label for="username">User name</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</div>
+      </div>
+        <div class="mb-3">
+          <div class="mb-3">
+            <label for="InputPassword" class="lable-control">Password</label>
+            <input type="password"form-control id="password" name="password" placeholder="Enter your password" >
+          </div>
+        <a class="login-link" href="#">Forget your password?</a>
+        <br/>
+        <br/>
+        <button type="submit" value="submit" class="btn btn-info-block">Submit</button>
+    </form>
+  </div>
+<div class = "col-md-3"></div> 
+
+{% include 'partials/navigation.html' %}
+{% endblock %}
